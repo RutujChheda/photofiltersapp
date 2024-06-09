@@ -1,0 +1,273 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "com.rutuj.photofiltersapp.PhotoConverterManualTester",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_108882150 { 
+   	label=rutuj
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1685228816 { 
+   	label=photofiltersapp
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Builder1911043414[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Builder</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ build(): ServiceComponent</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ConcurrentConverter1577323120[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ConcurrentConverter</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   convertedImageLocation: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   converter: PhotoConverter [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   fileName: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   inputImage: Photo [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ run()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ConvertPhotoActivity1526362[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ConvertPhotoActivity</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   conversionResults: Map&lt;ConcurrentConverter, Future&lt;Void&gt;&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   converterMapper: ConverterStrategyMapper [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   executorService: ExecutorService [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- gatherResults(): List&lt;String&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ handleRequest(filePath: String, conversionTypes: List&lt;ConversionType&gt;): List&lt;String&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >- shutDownExecutorService()</TD></TR>
+<TR><TD ALIGN="LEFT" >- submitConcurrentConverter(concurrentConverter: ConcurrentConverter)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ConverterStrategyMapper507044939[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ConverterStrategyMapper</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   converterMap: Map&lt;ConversionType, PhotoConverter&gt; [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getImageConverter(conversionType: ConversionType): PhotoConverter</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+DaggerServiceComponent608074794[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DaggerServiceComponent</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   serviceComponent: DaggerServiceComponent [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ builder(): Builder</TD></TR>
+<TR><TD ALIGN="LEFT" >+ create(): ServiceComponent</TD></TR>
+<TR><TD ALIGN="LEFT" >+ provideConvertPhotoActivity(): ConvertPhotoActivity</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+GreyscaleConverter507044939[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)GreyscaleConverter</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ convert(image: Photo, imageName: String): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InversionConverter507044939[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InversionConverter</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ convert(image: Photo, imageName: String): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Photo1372463170[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Photo</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   height: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pixels: List&lt;Pixel&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   width: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PhotoConverterManualTester1039272381[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PhotoConverterManualTester</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+<TR><TD ALIGN="LEFT" >- runTest(filePath: String, conversions: ImmutableList&lt;ConversionType&gt;)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PhotoUtil1152408371[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PhotoUtil</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- createRGB(bufferedImageRGBValue: int): RGB</TD></TR>
+<TR><TD ALIGN="LEFT" >+ fromFile(filePath: String): Photo</TD></TR>
+<TR><TD ALIGN="LEFT" >- getRGBIntValue(rgb: RGB): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ savePhoto(image: Photo, imageName: String, conversionType: ConversionType): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SepiaConverter507044939[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SepiaConverter</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ convert(image: Photo, imageName: String): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+ConcurrentConverter1577323120 -> GreyscaleConverter507044939[arrowhead=none];
+ConcurrentConverter1577323120 -> InversionConverter507044939[arrowhead=none];
+ConcurrentConverter1577323120 -> Photo1372463170[label="inputImage
+[0..1]"];
+ConcurrentConverter1577323120 -> SepiaConverter507044939[arrowhead=none];
+ConvertPhotoActivity1526362 -> ConcurrentConverter1577323120[label="conversionResults
+[0..1]"];
+ConvertPhotoActivity1526362 -> ConverterStrategyMapper507044939[label="converterMapper
+[0..1]"];
+ConvertPhotoActivity1526362 -> PhotoUtil1152408371[label="handleRequest() -> fromFile()"];
+DaggerServiceComponent608074794 -> Builder1911043414[label="create() -> build()"];
+PhotoConverterManualTester1039272381 -> ConvertPhotoActivity1526362[label="runTest() -> handleRequest()"];
+PhotoConverterManualTester1039272381 -> DaggerServiceComponent608074794[arrowhead=none];
+    
+}
+@enduml
