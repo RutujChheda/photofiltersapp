@@ -1,18 +1,12 @@
 
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-Q
-!src/main/java/com/rutuj/Main.java,6\3\638e36b5730beebed935472458292f69699b3cc8
-a
-1src/main/java/com/rutuj/photofiltersapp/Main.java,5\5\55dfbac047b662aa543bd1a099f9235407a62673
 q
 Asrc/main/java/com/rutuj/photofiltersapp/model/ConversionType.java,4\4\44586e72ab60ea14fc4cd51d9156843e849428a6
 h
 8src/main/java/com/rutuj/photofiltersapp/model/Pixel.java,3\9\39594599f3529e6a65d0e58a64f7a83e3bb72f2b
 f
 6src/main/java/com/rutuj/photofiltersapp/model/RGB.java,5\f\5f74803d8882cb91b6ca8d6c214ae641f5a92ad4
-m
-=src/main/java/com/rutuj/photofiltersapp/model/PrimePhoto.java,8\0\8061d39b4a9ec0c5caab2837e7d08613e5a50c05
 …
 Usrc/main/java/com/rutuj/photofiltersapp/exception/PhotoConversionClientException.java,e\a\ea857c426dd2082b4d374ced39987657928781d9
 †
@@ -25,14 +19,8 @@ z
 Jsrc/main/java/com/rutuj/photofiltersapp/activity/ConvertPhotoActivity.java,4\c\4ce841c4e2f3cdb406ece765731ae178b1303a6b
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-‡
-Wsrc/main/java/com/rutuj/photofiltersapp/converter/concurrent/ConvertStrategyMapper.java,2\d\2da7aee632477a78b535062e5284ac823396321a
-|
-Lsrc/main/java/com/rutuj/photofiltersapp/converter/ConvertStrategyMapper.java,f\a\fa84f1bb150362a872b4d6aa95aa05d75ccb5c03
 …
 Usrc/main/java/com/rutuj/photofiltersapp/converter/concurrent/ConcurrentConverter.java,d\6\d6747dace0e7fbd47a6e6319e126078563699490
-„
-Tsrc/main/java/com/rutuj/photofiltersapp/converter/concurrent/GreyScaleConverter.java,c\1\c16a81746b5f204e94cca12e8dc852286c13a2dc
 y
 Isrc/main/java/com/rutuj/photofiltersapp/converter/InversionConverter.java,2\3\23e1cb877bcc98c8bf11829502107b99c7678d2d
 u
@@ -47,12 +35,6 @@ y
 Isrc/main/java/com/rutuj/photofiltersapp/converter/GreyScaleConverter.java,1\a\1a57c415330a5d69348ac3ec67132403c990119f
 ~
 Nsrc/main/java/com/rutuj/photofiltersapp/converter/ConverterStrategyMapper.java,0\5\05b6949daa46524c1bf95407ccfbbacaac71d8c1
-N
-src/test/java/integration.java,c\3\c3c87c49c85d6d4bc7008d01b506dbacc1160dd1
-
-Qsrc/main/java/com/rutuj/photofiltersapp/PhotoConverterManualTester_structure.puml,d\1\d14e7b0ee053922d7fdc852c1a835f250667710a
-„
-Tsrc/main/java/com/rutuj/photofiltersapp/PhotoConverterManualTester_0_main_calls.puml,d\0\d042982cace7686b5d11e2767fc36139a701f411
 d
 4src/test/java/activity/ConvertPhotoActivityTest.java,0\d\0d9ac35498922ecb2bc208c1b7200729f9be24b2
 j
@@ -69,5 +51,11 @@ e
 Psrc/main/java/com/rutuj/photofiltersapp/converter/concurrent/BokehConverter.java,e\6\e6530c03c008fd00c2ce7fe3889afe72b888b9e5
 y
 Isrc/main/java/com/rutuj/photofiltersapp/converter/GreyscaleConverter.java,4\3\43c03f47b7f0ecf94fba5b77589326e6141eb1e6
-u
-Esrc/main/java/com/rutuj/photofiltersapp/model/BokehEffectApplier.java,9\4\94b3acdd099fc78c4b318839ac678eadfd7f20a4
+i
+9src/main/java/com/rutuj/photofiltersapp/view/MainApp.java,1\8\18a9f7c2439d5cde59f8f6f2e9420868dd7bb596
+i
+9src/main/java/com/rutuj/photofiltersapp/view/MainAPp.java,d\5\d50068b11555d181ade79aa443683115e32509f3
+x
+Hsrc/main/java/com/rutuj/photofiltersapp/util/ExecutorServiceManager.java,e\d\ed068fad52fa6ba5ebaf50ac8e58442f94a084a1
+n
+>src/main/java/com/rutuj/photofiltersapp/view/ImageHandler.java,f\c\fc24815c648c9b0d21d8b29b5e18a987747099c5
