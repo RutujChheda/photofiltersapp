@@ -4,12 +4,15 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
     id 'java'
     id 'checkstyle'
+    id 'application'
     id 'jacoco'
     id 'com.github.spotbugs' version '4.7.1'
     id 'com.adarshr.test-logger' version '3.0.0'
     id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
-
+application {
+    mainClass.set("com.rutuj.photofiltersapp.view.PhotoFiltersApp")
+}
 
 group = 'com.rutuj'
 version = '1.0-SNAPSHOT'
@@ -86,7 +89,7 @@ project.configurations.implementation.setCanBeResolved(true)
 jar {
     manifest {
         attributes(
-                "Main-Class": "",
+                "Main-Class": "com.rutuj.photofiltersapp.view.PhotoFiltersApp",
                 "Class-Path": configurations.implementation.collect { it.name }.join(' ')
         )
     }

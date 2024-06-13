@@ -18,14 +18,19 @@ These instructions will get you a copy of the project up and running on your loc
 git clone https://github.com/RutujChheda/photofiltersapp.git
 ```
 
-2. Build the project
+1. Navigate to the project directory
 ```bash
 cd photofiltersapp
 ```
 
+2. Build the project
+```bash
+   gradle build
+```
 3. Usage
-   To use the application, you need to run the PhotoConverterManualTester class. This class contains a main method that applies a set of filters to a photo.
-
+```bash
+   gradle run
+```
 ## Architecture Diagrams
 
 ### PhotoConverterManualTester Main Calls
@@ -36,3 +41,8 @@ cd photofiltersapp
 
 ![PhotoConverterManualTester Structure](src/main/resources/PhotoConverterManualTester_structure.svg)
 [Project Structure](src/main/resources/PhotoConverterManualTester_structure.puml)
+
+### Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.

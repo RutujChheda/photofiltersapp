@@ -77,3 +77,5 @@ Asrc/main/java/com/rutuj/photofiltersapp/view/PhotoFiltersApp.java,0\1\01befcab
 Nsrc/main/java/com/rutuj/photofiltersapp/Tester/PhotoConverterManualTester.java,2\e\2e6367463c7ddd6b0c5809d1c6461a37831d0927
 f
 6src/main/java/com/rutuj/photofiltersapp/MainFrame.java,5\2\52fe5c26a84b20554732a379ca1894b9d003e1f2
+7
+gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
