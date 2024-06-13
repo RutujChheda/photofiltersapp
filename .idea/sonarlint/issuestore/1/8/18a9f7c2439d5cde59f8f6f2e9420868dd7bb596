@@ -1,6 +1,14 @@
 
+®
+java:S4165b"kRemove this useless assignment; "filteredImage" already holds the assigned value along all execution paths.(Ôõ¼ò8ë«Õ™2J$9856498e-1009-4674-a02f-f2a6f1fa758e
+‚
+java:S1854":Remove this useless assignment to local variable "dagger".(÷ª¢¦úÿÿÿÿ8ÖŒÉ™2J$5dde195a-cd62-461d-b8e7-d6785e9c9768
+s
+java:S1481"+Remove this unused "dagger" local variable.(÷ª¢¦úÿÿÿÿ8×ŒÉ™2J$437454e6-99b2-4b8f-a7e0-90ed10dd1926
 Œ
-java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8¨‚ƒˆ2J$970df07a-d5dc-43c3-badc-620e6febe737
+java:S3252!"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ÚÖÈ™2J$7a16a1e3-6243-4b0c-88ec-82f7e15cb96d
 …
-java:S3252O"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(ŒŒÓÏúÿÿÿÿ8°‚ƒˆ2J$1931737d-cd53-436c-9866-062773e0f694
-G	java:S106["+Replace this use of System.out by a logger.(‰¤‰½8¾Œ’ˆ2
+java:S3252V"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(ŒŒÓÏúÿÿÿÿ8âÖÈ™2J$15a30ffe-10bf-47dc-8134-5a902aee623e
+t
+java:S1602g",Remove useless curly braces around statement(¡ê»èşÿÿÿÿ8ƒ¬Õ™2J$2316d9e0-03fb-45e7-b270-d30d3ccd44d8
+m	java:S106j"+Replace this use of System.out by a logger.(‰¤‰½8ƒ¬Õ™2J$e1f7b75f-b609-4973-8850-0e51a770e11a

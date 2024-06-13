@@ -1,0 +1,35 @@
+
+p
+java:S1604E"(Make this anonymous inner class a lambda(ö¹Éàøÿÿÿÿ8Â²‰Ÿ2J$706ae401-a5f4-4ff9-8389-d6a0c9225211
+k
+java:S1604L"(Make this anonymous inner class a lambda(Ï¸8Â²‰Ÿ2J$258a5720-86d0-48f3-a4c2-56ec2b99616e
+k
+java:S1604S"(Make this anonymous inner class a lambda(â¯Ë¾8Ã²‰Ÿ2J$da9510d6-56af-4eca-ba33-cab8f31fdbb0
+p
+java:S1604Z"(Make this anonymous inner class a lambda(™½ƒõüÿÿÿÿ8Ã²‰Ÿ2J$6903e25d-80f5-40bc-8709-e71d0d7a84d6
+p
+java:S1604a"(Make this anonymous inner class a lambda(Ğ¨’•üÿÿÿÿ8Ã²‰Ÿ2J$0d408b6a-0394-44eb-9666-e9489e7af87e
+Ÿ
+java:S1450"\Remove the "filteredImage" field and declare it as a local variable in the relevant methods.(ÆòÿÊ8Ò²‰Ÿ2J$b62b574e-0193-408b-aa56-a231bb29cc52
+Ÿ
+java:S1450"\Remove the "originalImage" field and declare it as a local variable in the relevant methods.(¼–ª8Ò²‰Ÿ2J$0c3c6060-80cc-4422-87d2-ef56442c144c
+r
+java:S1948"/Make "originalImage" transient or serializable.(¼–ª8Ò²‰Ÿ2J$5e58d129-49ff-4843-822b-9f1986d40515
+r
+java:S1948"/Make "filteredImage" transient or serializable.(ÆòÿÊ8Ò²‰Ÿ2J$df9a8506-be72-4e11-93f3-0ea460969f1b
+k
+java:S1948¹"'Make "image" transient or serializable.(ğã’8³¬à2J$22f64e8b-18c5-4514-bf85-63ca9a0d6325
+ƒ
+java:S1161Ú":Add the "@Override" annotation above this method signature(®î’×üÿÿÿÿ8·¬à2J$9279033d-7f4c-40ca-8ab7-2c225d6b311e
+}
+java:S1161à":Add the "@Override" annotation above this method signature(®—ËF8¸¬à2J$613b7967-4d0f-45af-bc3c-f437f396fc18
+j
+java:S1905ã"&Remove this unnecessary cast to "int".(Ì€¼8¹¬à2J$a9bfaa5a-2c9c-46da-bad1-8e0220a989e9
+e
+java:S1110ã"!Remove these useless parentheses.(Ì€¼8¹¬à2J$598de758-2c21-4224-8fe6-0b0f4cb7f8a1
+j
+java:S1905ä"&Remove this unnecessary cast to "int".(–‡ôÖ8¹¬à2J$43ed8376-d067-49ce-b740-037fd176e0b5
+e
+java:S1110ä"!Remove these useless parentheses.(–‡ôÖ8¹¬à2J$6439f723-c24e-4ba1-8194-1d97a683ada3
+‡
+java:S1128"DRemove this unused import 'com.google.common.collect.ImmutableList'.(Ã½¸8ˆ³‰Ÿ2J$fb282a0a-04eb-4610-a736-00f57545bb82
