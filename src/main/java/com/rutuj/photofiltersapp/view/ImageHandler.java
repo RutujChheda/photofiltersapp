@@ -18,7 +18,6 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.function.Consumer;
 
 public class ImageHandler {
     private final ExecutorService executorService;
@@ -40,6 +39,7 @@ public class ImageHandler {
         if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             try {
+                clearStoredResults(); // Clear stored results when a new image is loaded
                 return ImageIO.read(file);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "Failed to load image. Please check the file path and try again.");
@@ -66,22 +66,57 @@ public class ImageHandler {
     public void applyFiltersAndStoreResults(BufferedImage originalImage, Runnable callback) {
         executorService.submit(() -> {
             try {
+                System.out.println("Applying filters to the new image...");
                 BufferedImage imageToFilter = copyImage(originalImage);
                 File tempFile = File.createTempFile("tempImage", ".png");
                 tempFile.deleteOnExit();
                 ImageIO.write(imageToFilter, "png", tempFile);
+
                 List<String> resultPaths = activity.handleRequest(tempFile.getAbsolutePath(),
-                        ImmutableList.of(ConversionType.INVERSION, ConversionType.GREYSCALE, ConversionType.SEPIA));
+                        ImmutableList.of(ConversionType.GREYSCALE, ConversionType.SEPIA, ConversionType.INVERSION));
+
+                System.out.println("Filter results paths: " + resultPaths);
+
                 if (resultPaths.size() == 3) {
-                    storedResults.put(ConversionType.INVERSION, ImageIO.read(new File(resultPaths.get(0))));
-                    storedResults.put(ConversionType.GREYSCALE, ImageIO.read(new File(resultPaths.get(1))));
-                    storedResults.put(ConversionType.SEPIA, ImageIO.read(new File(resultPaths.get(2))));
-                    SwingUtilities.invokeLater(callback);
+                    BufferedImage greyscaleImage = readImage(resultPaths.get(0));
+                    BufferedImage sepiaImage = readImage(resultPaths.get(1));
+                    BufferedImage inversionImage = readImage(resultPaths.get(2));
+
+                    if (greyscaleImage != null && sepiaImage != null && inversionImage != null) {
+                        storedResults.put(ConversionType.GREYSCALE, greyscaleImage);
+                        storedResults.put(ConversionType.SEPIA, sepiaImage);
+                        storedResults.put(ConversionType.INVERSION, inversionImage);
+                        System.out.println("Filters applied and images stored.");
+                        SwingUtilities.invokeLater(callback);
+                    } else {
+                        System.out.println("One or more images could not be read.");
+                        SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(null, "Failed to apply filters: one or more images could not be read."));
+                    }
+                } else {
+                    System.out.println("Unexpected number of result paths: " + resultPaths.size());
+                    SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(null, "Failed to apply filters: not all results were returned."));
                 }
             } catch (IOException e) {
+                e.printStackTrace();
                 SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(null, "Failed to apply filters."));
             }
         });
+    }
+
+    private BufferedImage readImage(String path) {
+        try {
+            System.out.println("Reading image from path: " + path);
+            BufferedImage img = ImageIO.read(new File(path));
+            if (img == null) {
+                System.out.println("ImageIO.read returned null for path: " + path);
+            } else {
+                System.out.println("Successfully read image from path: " + path);
+            }
+            return img;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public BufferedImage getStoredResult(ConversionType conversionType) {
@@ -96,7 +131,13 @@ public class ImageHandler {
         return b;
     }
 
+    public void clearStoredResults() {
+        storedResults.clear();
+    }
+
     public void shutdown() {
         executorService.shutdown();
     }
 }
+
+

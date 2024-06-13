@@ -1,7 +1,6 @@
 
 Œ
-java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8³ó††2J$58708324-0f6d-4325-ab29-69c06f701139
-_
-java:S3252G"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(ŒŒÓÏúÿÿÿÿ8ó¬˜†2
-N
-java:S1602R",Remove useless curly braces around statement(¡ê»èşÿÿÿÿ8÷¬˜†2
+java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8¨‚ƒˆ2J$970df07a-d5dc-43c3-badc-620e6febe737
+…
+java:S3252O"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(ŒŒÓÏúÿÿÿÿ8°‚ƒˆ2J$1931737d-cd53-436c-9866-062773e0f694
+G	java:S106["+Replace this use of System.out by a logger.(‰¤‰½8¾Œ’ˆ2

@@ -10,8 +10,8 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 
 public class MainApp {
-    private static JLabel originalImageLabel;
-    private static JLabel filteredImageLabel;
+    private static ImagePanel originalImagePanel;
+    private static ImagePanel filteredImagePanel;
     private static BufferedImage originalImage;
     private static BufferedImage filteredImage;
     private static ImageHandler imageHandler;
@@ -31,9 +31,17 @@ public class MainApp {
         JButton saveButton = new JButton("Save");
         saveButton.addActionListener(MainApp::saveImage);
 
+        JButton zoomInButton = new JButton("Zoom In");
+        zoomInButton.addActionListener(e -> zoomIn());
+
+        JButton zoomOutButton = new JButton("Zoom Out");
+        zoomOutButton.addActionListener(e -> zoomOut());
+
         JPanel topButtonPanel = new JPanel();
         topButtonPanel.add(openButton);
         topButtonPanel.add(saveButton);
+        topButtonPanel.add(zoomInButton);
+        topButtonPanel.add(zoomOutButton);
 
         JButton greyscaleButton = new JButton("Apply Greyscale");
         greyscaleButton.addActionListener(e -> applyFilter(ConversionType.GREYSCALE));
@@ -49,12 +57,12 @@ public class MainApp {
         bottomButtonPanel.add(inversionButton);
         bottomButtonPanel.add(sepiaButton);
 
-        originalImageLabel = new JLabel();
-        filteredImageLabel = new JLabel();
+        originalImagePanel = new ImagePanel();
+        filteredImagePanel = new ImagePanel();
 
         JPanel imagePanel = new JPanel(new GridLayout(1, 2));
-        imagePanel.add(new JScrollPane(originalImageLabel));
-        imagePanel.add(new JScrollPane(filteredImageLabel));
+        imagePanel.add(new JScrollPane(originalImagePanel));
+        imagePanel.add(new JScrollPane(filteredImagePanel));
 
         frame.add(topButtonPanel, BorderLayout.NORTH);
         frame.add(imagePanel, BorderLayout.CENTER);
@@ -75,16 +83,14 @@ public class MainApp {
     private static void openImage(ActionEvent event) {
         originalImage = imageHandler.loadImage();
         if (originalImage != null) {
-            originalImageLabel.setIcon(new ImageIcon(originalImage));
+            originalImagePanel.setImage(originalImage);
             filteredImage = ImageHandler.copyImage(originalImage);
-            filteredImageLabel.setIcon(new ImageIcon(filteredImage));
-            // Apply all filters and store the results for later use
-            imageHandler.applyFiltersAndStoreResults(originalImage, () -> {
-                // Update UI once filters are applied and results are stored
-                SwingUtilities.invokeLater(() -> {
-                    // Any additional UI updates after processing
-                });
-            });
+            filteredImagePanel.setImage(filteredImage);
+            imageHandler.clearStoredResults();
+            imageHandler.applyFiltersAndStoreResults(originalImage, () -> SwingUtilities.invokeLater(() -> {
+                System.out.println("Filters applied and results stored.");
+                filteredImagePanel.setImage(ImageHandler.copyImage(originalImage));
+            }));
         }
     }
 
@@ -98,9 +104,10 @@ public class MainApp {
 
     private static void applyFilter(ConversionType conversionType) {
         if (originalImage != null) {
-            filteredImage = imageHandler.getStoredResult(conversionType);
-            if (filteredImage != null) {
-                filteredImageLabel.setIcon(new ImageIcon(filteredImage));
+            BufferedImage result = imageHandler.getStoredResult(conversionType);
+            if (result != null) {
+                filteredImage = result;
+                filteredImagePanel.setImage(filteredImage);
             } else {
                 JOptionPane.showMessageDialog(null, "Failed to apply filter.");
             }
@@ -108,6 +115,15 @@ public class MainApp {
             JOptionPane.showMessageDialog(null, "Please upload an image first.");
         }
     }
-}
 
+    private static void zoomIn() {
+        originalImagePanel.zoomIn();
+        filteredImagePanel.zoomIn();
+    }
+
+    private static void zoomOut() {
+        originalImagePanel.zoomOut();
+        filteredImagePanel.zoomOut();
+    }
+}
 
