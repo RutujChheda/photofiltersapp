@@ -36,11 +36,11 @@ cd photofiltersapp
 ### PhotoConverterManualTester Main Calls
 
 ![PhotoConverterManualTester Main Calls](src/main/resources/PhotoConverterManualTester_0_main_calls.svg)
-[Project Calls Sequence](src/main/resources/PhotoConverterManualTester_0_main_calls.puml)
+[Project Calls Sequence](src/main/resources/MainPanel_0_MainPanel_calls.puml)
 ### PhotoConverterManualTester Structure
 
 ![PhotoConverterManualTester Structure](src/main/resources/PhotoConverterManualTester_structure.svg)
-[Project Structure](src/main/resources/PhotoConverterManualTester_structure.puml)
+[Project Structure](src/main/resources/MainPanel_structure.puml)
 
 ### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

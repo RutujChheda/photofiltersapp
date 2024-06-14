@@ -1,0 +1,241 @@
+@startuml
+
+/' diagram meta data start
+config=CallConfiguration;
+{
+  "rootMethod": "com.rutuj.photofiltersapp.view.MainPanel#MainPanel()",
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showMethodParametersTypes": false,
+    "showMethodParametersNames": false,
+    "showMethodReturnType": false,
+    "showPackageLevels": 2,
+    "showCallOrder": false,
+    "edgeMode": "MethodsOnly", // TypesOnly, MethodsOnly, TypesAndMethods, MethodsAndDirectTypeUsage
+    "showDetailedClassStructure": false
+  },
+  "rootClass": "com.rutuj.photofiltersapp.view.MainPanel",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="LR"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_108882150 { 
+   	label=rutuj
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1685228816 { 
+   	label=photofiltersapp
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   subgraph cluster_1255668801 { 
+   	label=FileUtil
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   FileUtil1152408371XXXcopyFile1695262292[
+	label="+ copyFile()"
+	style=filled
+	fillcolor=white
+	tooltip="FileUtil
+
+null"
+	fontcolor=darkgreen
+];
+
+FileUtil1152408371XXXloadImage2189724[
+	label="+ loadImage()"
+	style=filled
+	fillcolor=white
+	tooltip="FileUtil
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_1693232222 { 
+   	label=ConvertPhotoActivity
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   ConvertPhotoActivity1526362XXXhandleRequest1398741355[
+	label="+ handleRequest()"
+	style=filled
+	fillcolor=white
+	tooltip="ConvertPhotoActivity
+
+&#10;  Applies the requested conversions on the file located at the provided filePath. A new image will be generated&#10;  for each conversion.&#10; &#10;  If more than one conversion is requested, multiple threads will be used to execute each conversion.&#10;  @param filePath the location of the file to convert&#10;  @param conversionTypes a list of conversions to apply to the image&#10;  @return a list of file paths containing the converted images&#10; "
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_1756674555 { 
+   	label=ConverterStrategyMapper
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   ConverterStrategyMapper507044939XXXgetImageConverter12346992[
+	label="+ getImageConverter()"
+	style=filled
+	fillcolor=white
+	tooltip="ConverterStrategyMapper
+
+&#10;  Retrieves the strategy associated with the provided ConversionType.&#10;  @param conversionType the type of strategy requested&#10;  @return the associated strategy&#10; "
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_1911043414 { 
+   	label=DaggerServiceComponent
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   DaggerServiceComponent608074794XXXprovideConvertPhotoActivity0[
+	label="+ provideConvertPhotoActivity()"
+	style=filled
+	fillcolor=white
+	tooltip="DaggerServiceComponent
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_206533971 { 
+   	label=PhotoUtil
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   PhotoUtil1152408371XXXfromFile1808118735[
+	label="+ fromFile()"
+	style=filled
+	fillcolor=white
+	tooltip="PhotoUtil
+
+&#10;  Reads an image file into memory and returns it in a Photo representation.&#10;  @param filePath the location of the file to be opened&#10;  @return a Photo representation of an image file&#10;  @throws PhotoConversionClientException if the provided file cannot be opened&#10; "
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_227131738 { 
+   	label=PhotoFiltersApp
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   PhotoFiltersApp1152389264XXXmain1859653459[
+	label="+ main()"
+	style=filled
+	fillcolor=white
+	tooltip="PhotoFiltersApp
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_408000173 { 
+   	label=MainPanel
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   MainPanel1152389264XXXMainPanel0[
+	label="+ MainPanel()"
+	style=filled
+	fillcolor=white
+	tooltip="MainPanel
+
+null"
+	penwidth=4
+	fontcolor=darkgreen
+];
+} 
+} 
+} 
+
+'edges    
+ConvertPhotoActivity1526362XXXhandleRequest1398741355 -> ConverterStrategyMapper507044939XXXgetImageConverter12346992;
+ConvertPhotoActivity1526362XXXhandleRequest1398741355 -> PhotoUtil1152408371XXXfromFile1808118735;
+MainPanel1152389264XXXMainPanel0 -> ConvertPhotoActivity1526362XXXhandleRequest1398741355;
+MainPanel1152389264XXXMainPanel0 -> DaggerServiceComponent608074794XXXprovideConvertPhotoActivity0;
+MainPanel1152389264XXXMainPanel0 -> FileUtil1152408371XXXcopyFile1695262292;
+MainPanel1152389264XXXMainPanel0 -> FileUtil1152408371XXXloadImage2189724;
+PhotoFiltersApp1152389264XXXmain1859653459 -> MainPanel1152389264XXXMainPanel0;
+    
+}
+@enduml
