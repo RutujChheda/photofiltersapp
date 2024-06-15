@@ -61,11 +61,3 @@ Asrc/main/java/com/rutuj/photofiltersapp/view/PhotoFiltersApp.java,0\1\01befcab
 Nsrc/main/java/com/rutuj/photofiltersapp/Tester/PhotoConverterManualTester.java,2\e\2e6367463c7ddd6b0c5809d1c6461a37831d0927
 7
 gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
-{
-Ksrc/main/java/com/rutuj/photofiltersapp/view/PhotoFiltersApp_structure.puml,b\3\b361ab0d9f6bc2c4f37e3501869785249aea8fdd
-~
-Nsrc/main/java/com/rutuj/photofiltersapp/view/PhotoFiltersApp_0_main_calls.puml,5\1\5192ee4e237c8878d39e5fec0fe3af1bd9824513
-u
-Esrc/main/java/com/rutuj/photofiltersapp/view/MainPanel_structure.puml,c\1\c1c436f3d2f8cefd60c1af294daa34adecc3b04f
-}
-Msrc/main/java/com/rutuj/photofiltersapp/view/MainPanel_0_MainPanel_calls.puml,5\8\58cd27fc361bb33602d8900e4b6de7e8d2986c0f

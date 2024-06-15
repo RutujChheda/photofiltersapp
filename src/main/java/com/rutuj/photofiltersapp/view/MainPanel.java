@@ -1,6 +1,6 @@
 package com.rutuj.photofiltersapp.view;
 
-import com.google.common.collect.ImmutableList;
+
 import com.rutuj.photofiltersapp.activity.ConvertPhotoActivity;
 import com.rutuj.photofiltersapp.dependency.DaggerServiceComponent;
 import com.rutuj.photofiltersapp.dependency.ServiceComponent;
