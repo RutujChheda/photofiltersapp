@@ -1,0 +1,79 @@
+@startuml
+
+class Builder {
+    + build(): ServiceComponent
+}
+
+class ConcurrentConverter {
+    - convertedImageLocation: String
+    - converter: PhotoConverter
+    - fileName: String
+    - inputImage: Photo
+    + run()
+}
+
+class ConvertPhotoActivity {
+    - conversionResults: Map<ConcurrentConverter, Future<Void>>
+    - converterMapper: ConverterStrategyMapper
+    - executorService: ExecutorService
+    - gatherResults(): List<String>
+    + handleRequest(filePath: String, conversionTypes: List<ConversionType>): List<String>
+    - shutDownExecutorService()
+    - submitConcurrentConverter(concurrentConverter: ConcurrentConverter)
+}
+
+class ConverterStrategyMapper {
+    - converterMap: Map<ConversionType, PhotoConverter>
+    + getImageConverter(conversionType: ConversionType): PhotoConverter
+}
+
+class DaggerServiceComponent {
+    - serviceComponent: DaggerServiceComponent
+    + builder(): Builder
+    + create(): ServiceComponent
+    + provideConvertPhotoActivity(): ConvertPhotoActivity
+}
+
+class GreyscaleConverter {
+    + convert(image: Photo, imageName: String): String
+}
+
+class InversionConverter {
+    + convert(image: Photo, imageName: String): String
+}
+
+class Photo {
+    - height: int
+    - pixels: List<Pixel>
+    - type: int
+    - width: int
+}
+
+class PhotoConverterManualTester {
+    + main(args: String[])
+    - runTest(filePath: String, conversions: ImmutableList<ConversionType>)
+}
+
+class PhotoUtil {
+    - createRGB(bufferedImageRGBValue: int): RGB
+    + fromFile(filePath: String): Photo
+    - getRGBIntValue(rgb: RGB): int
+    + savePhoto(image: Photo, imageName: String, conversionType: ConversionType): String
+}
+
+class SepiaConverter {
+    + convert(image: Photo, imageName: String): String
+}
+
+ConcurrentConverter --> GreyscaleConverter : convert()
+ConcurrentConverter --> InversionConverter : convert()
+ConcurrentConverter --> Photo
+ConcurrentConverter --> SepiaConverter : convert()
+ConvertPhotoActivity --> ConcurrentConverter : submitConcurrentConverter()
+ConvertPhotoActivity --> ConverterStrategyMapper : getImageConverter()
+ConvertPhotoActivity --> PhotoUtil : fromFile()
+DaggerServiceComponent --> Builder : builder()
+PhotoConverterManualTester --> ConvertPhotoActivity : handleRequest()
+PhotoConverterManualTester --> DaggerServiceComponent : provideConvertPhotoActivity()
+
+@enduml

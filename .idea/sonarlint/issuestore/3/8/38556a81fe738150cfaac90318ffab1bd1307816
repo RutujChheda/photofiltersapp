@@ -1,0 +1,33 @@
+
+J
+java:S1604E"(Make this anonymous inner class a lambda(ö¹Éàøÿÿÿÿ8ÔÇ´™‚2
+E
+java:S1604L"(Make this anonymous inner class a lambda(Ï¸8ÔÇ´™‚2
+E
+java:S1604S"(Make this anonymous inner class a lambda(â¯Ë¾8ÔÇ´™‚2
+J
+java:S1604Z"(Make this anonymous inner class a lambda(™½ƒõüÿÿÿÿ8ÕÇ´™‚2
+J
+java:S1604a"(Make this anonymous inner class a lambda(Ğ¨’•üÿÿÿÿ8ÕÇ´™‚2
+y
+java:S1450"\Remove the "filteredImage" field and declare it as a local variable in the relevant methods.(ÆòÿÊ8îÇ´™‚2
+y
+java:S1450"\Remove the "originalImage" field and declare it as a local variable in the relevant methods.(¼–ª8ïÇ´™‚2
+L
+java:S1948"/Make "originalImage" transient or serializable.(¼–ª8ïÇ´™‚2
+L
+java:S1948"/Make "filteredImage" transient or serializable.(ÆòÿÊ8ïÇ´™‚2
+E
+java:S1948¹"'Make "image" transient or serializable.(ğã’8£È´™‚2
+]
+java:S1161Ú":Add the "@Override" annotation above this method signature(®î’×üÿÿÿÿ8³È´™‚2
+W
+java:S1161à":Add the "@Override" annotation above this method signature(®—ËF8µÈ´™‚2
+D
+java:S1905ã"&Remove this unnecessary cast to "int".(Ì€¼8¶È´™‚2
+?
+java:S1110ã"!Remove these useless parentheses.(Ì€¼8¶È´™‚2
+D
+java:S1905ä"&Remove this unnecessary cast to "int".(–‡ôÖ8·È´™‚2
+?
+java:S1110ä"!Remove these useless parentheses.(–‡ôÖ8·È´™‚2
